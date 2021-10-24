@@ -1,0 +1,7 @@
+Docker
+======
+
+1. To build the image run the `docker build . -t esase/example_node_microservice`
+2. Run the container `docker run --rm -p 80:8080 -d esase/example_node_microservice`
+3. Stop  the container `docker stop <container_id>`
+4. Enter the container `docker exec -it <container id> /bin/bash`
