@@ -1,8 +1,16 @@
 Docker
 ======
 
-1. To build the image run the `docker build . -t esase/example_node_microservice`
-2. Run the container `docker run --rm -p 80:8080 -d esase/example_node_microservice`
+1. To build the image run the `docker build -t api .`
+2. Run the container `docker run --rm -p 80:8080 -d api`
 3. Stop  the container `docker stop <container_id>`
 4. Enter the container `docker exec -it <container id> /bin/bash`
-5. Follow this guide - https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/module-one/
+5. Allow you docker to be logged on the AWS:
+    `aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 254577677474.dkr.ecr.us-east-2.amazonaws.com`
+5. Create a tag and upload the image to AWS ECS
+    a. `docker tag api:latest 254577677474.dkr.ecr.us-east-2.amazonaws.com/api:latest`
+
+    b. `docker push 254577677474.dkr.ecr.us-east-2.amazonaws.com/api:latest` 
+
+6. Follow this guide - https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/module-one/
+
